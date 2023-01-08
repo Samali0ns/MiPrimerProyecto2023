@@ -1,0 +1,105 @@
+<html>
+
+<head>
+  {% load static %}
+
+
+    <!-- Bootstrap -->
+    <link href="{% static 'ProyectoTiendaApp/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+
+     <!-- Fonts -->
+    
+     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
+     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+     
+
+    <!-- Styles -->
+    <link href="{% static 'ProyectoTiendaApp/css/gestion.css'%}" rel="stylesheet">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand"></a>
+      <div class="container">
+          <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="{% url 'home' %}">Tienda Americana</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item {% if request.path == '/' %} active {% endif %} px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'home' %}">Inicio</a>
+            </li>
+            <li class="nav-item {% if request.path == '/productos' %} active {% endif %} px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'productos' %}">Productos</a>
+            </li>
+            <li class="nav-item {% if request.path == '/servicios' %} active {% endif %} px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'servicios' %}">Servicios</a>
+            </li>
+            <li class="nav-item {% if request.path == '/crear-productos' %} active {% endif %} px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'crear-productos' %}">Crea tu Producto</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0" action="/productos" method="GET">
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="search" name="search">
+            <button class="btn btn-outline-success my-2 my-sm-0" style="color:white" type="submit">Buscar</button>
+          </form>
+
+        </div>
+      </div>
+    </nav>
+    </nav>
+
+</head>
+
+
+      <!--contenido cambiante-->
+
+      {% block content %}
+
+
+
+
+
+      {% endblock %}
+
+
+    <!-- Footer -->
+    <footer class="footer text-faded text-center py-5">
+      <div class="container">
+        <p class="m-0">
+	        <a href="#" class="link">
+	          <span class="fa-stack fa-lg">
+	            <i class="fa fa-circle fa-stack-2x"></i>
+	            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+	          </span>
+	        </a>
+	        <a href="#" class="link">
+	          <span class="fa-stack fa-lg">
+	            <i class="fa fa-circle fa-stack-2x"></i>
+	            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+	          </span>
+	        </a>
+	        <a href="#" class="link">
+	          <span class="fa-stack fa-lg">
+	            <i class="fa fa-circle fa-stack-2x"></i>
+	            <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+	          </span>
+	        </a>
+	    </p>
+        <p class="m-0 mbt" style="color:white">
+        	<a href="{% url 'home'%}" class="link">Política de privacidad</a> ·
+        	<a href="{% url 'home'%}" class="link">Aviso legal</a> ·
+        	<a href="{% url 'home'%}" class="link">Cookies</a>
+		</p>
+        <p class="m-0 mbt1" style="color:white">&copy; Mi Primero Proyecto 2023</p>
+      </div>
+	</footer>
+
+    <!-- Bootstrap -->
+    <script src="{% static 'ProyectoTiendaApp/vendor/jquery/jquery.min.js'%}"></script>
+    <script src="{% static 'ProyectoTiendaApp/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+
+</body>
+
+
+</html>

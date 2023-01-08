@@ -1,0 +1,15 @@
+{% extends 'ProyectoTiendaApp/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<title>LISTA DE PRODUCTOS</title>
+
+{% for categoria in categorias %}
+
+    <p>Remeras: {{categoria.nombre}}</p>
+
+{% endfor %}
+
+{% endblock %}

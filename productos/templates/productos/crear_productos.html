@@ -1,0 +1,39 @@
+{% extends 'ProyectoTiendaApp/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<title>CREAR PRODUCTO</title>
+
+{% if form %}
+
+<form action="" method="POST">
+
+    {% csrf_token %}
+
+    <table>
+        {{form.as_table}}
+    </table>
+
+    <input type="submit" value="Crear producto">
+
+</form>
+
+{% endif %}
+
+{% if formulario_errores %}
+
+<h2 style="color:red"><strong>Errores:</strong></h2>
+{{formulario_errores}}
+
+{% endif %}
+
+{% if mensaje %}
+
+<h2 style="color:green;"><strong>{{mensaje}}</strong></h2>
+
+{% endif %}
+
+
+{% endblock %}
