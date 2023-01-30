@@ -22,5 +22,11 @@ urlpatterns = [
     path('',include('ProyectoTiendaApp.urls')),
     path('servicios/',include('servicios.urls')),
     path('productos/',include('productos.urls')),
+    path('nosotros/',include('sobremi.urls')),
+    path('registro/',include('registro.urls')),
+    path('carro/',include('carro.urls')),
+    path('pedidos/',include('pedidos.urls')),
+    path('contacto/',include('contacto.urls')),
+
     
 ]

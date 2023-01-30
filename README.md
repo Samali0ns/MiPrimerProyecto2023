@@ -2,8 +2,6 @@
 
 El diseño visual de este proyecto esta creado y modificado desde plantillas ofrecidas por [bootstrap](http://https://getbootstrap.com "bootstrap")
 
-Esta formado por tres aplicaciones ProyectoTiendaApp, servicios y productos.
-
 ### ProyectoTiendaAppProyectoTiendaApp
 Incluye carpetas de estilos, almacena la imagen principal de la web y la imagen del banner, los archivos html relacionados a la web principal y la base que nos hereda:
 
@@ -19,6 +17,22 @@ Muestra desde un renderizado los productos en venta con stock disponible (los bo
 
 ## Media
 Almacena todas las imagenes cargadas desde el panel administrativo
+
+## Pedidos
+Contiene todos los metadatos que controlan la accion por el usuario al momento de realizar algun pedido, donde previamente debe estar registrado.
+
+## Contacto
+Es un formulario creado para que el usuario pueda comunicarse con nosotros, dichos mensaje se almacenan en el admin de la web.
+
+## Sobre Mi
+Es una espacio donde se da informacion de quien realizo la web con algunas muestras de habilidades y conocimientos.
+
+## Usuarios
+Se encarga de controlar los registros y sesiones de todos los que se registran en la plataforma
+
+## Carro
+Es nuestra area de compras, que controla agregar,sumar y restar articulos a nuestro carro de compras
+
 
 
 

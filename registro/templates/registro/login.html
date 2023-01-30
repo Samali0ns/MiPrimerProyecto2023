@@ -1,0 +1,39 @@
+{% extends 'ProyectoTiendaApp/base.html' %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<br>
+<h1 div style="width:50%; margin:auto;">Iniciar Sesion</h1><br>
+
+
+
+    {% if form %}
+
+        <form action="" method="POST">
+
+            {% csrf_token %}
+            <div style="width:50%; margin:auto;">
+            <table>
+                {{form|crispy}}
+            </table>
+
+
+            <input class="btn btn-outline-primary" type="submit" value="Ingresar"> &nbsp;<a class="btn btn-outline-primary" href="/registro/password-reset/">Recuperar Contraseña</a><br><br>
+
+
+            {% if errors %}
+                    *{{errors}}
+            {% endif %}
+            </div>
+        </form>
+    {% endif %}
+
+
+
+
+{% endblock %}

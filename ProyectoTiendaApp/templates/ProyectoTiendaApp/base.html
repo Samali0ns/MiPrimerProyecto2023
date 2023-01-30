@@ -19,33 +19,67 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <a class="navbar-brand"></a>
-      <div class="container">
-          <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="{% url 'home' %}">Tienda Americana</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item {% if request.path == '/' %} active {% endif %} px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'home' %}">Inicio</a>
+              <a class="nav-link text-title text-expanded" href="{% url 'home' %}">Inicio</a>
             </li>
             <li class="nav-item {% if request.path == '/productos' %} active {% endif %} px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'productos' %}">Productos</a>
+              <a class="nav-link text-title text-expanded" href="{% url 'productos' %}">Productos</a>
             </li>
             <li class="nav-item {% if request.path == '/servicios' %} active {% endif %} px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'servicios' %}">Servicios</a>
+              <a class="nav-link text-title text-expanded" href="{% url 'servicios' %}">Servicios</a>
             </li>
-            <li class="nav-item {% if request.path == '/crear-productos' %} active {% endif %} px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'crear-productos' %}">Crea tu Producto</a>
+            <li class="nav-item {% if request.path == '/sobremi' %} active {% endif %} px-lg-4">
+              <a class="nav-link text-title text-expanded" href="{% url 'sobremi' %}">Sobre mi</a>
             </li>
+            <li class="nav-item {% if request.path == '/contacto' %} active {% endif %} px-lg-4">
+              <a class="nav-link text-title text-expanded" href="{% url 'contacto' %}">Contacto</a>
+            </li>
+
+            <!-- REGISTRO -->
+            {% if request.user.is_authenticated %}
+              {% if request.user.profile.profile_picture.url != '' %}
+                <img src="{{request.user.profile.profile_picture.url}}" alt="profile_picture" width="50px" height="50px">
+              {% endif %}
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                  {{request.user.username}}
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="{% url 'profile' %}">Mi Perfil</a>
+                  <!--<a class="dropdown-item" href="/registro/update/">Modificar datos</a>-->
+                  <a class="dropdown-item" href="/productos/agregar-producto/">Agregar Productos</a>
+                  <a class="dropdown-item" href="/productos/listar-producto/">Lista Productos</a>
+                  <a class="dropdown-item" href="/registro/logout/">Cerrar sesion</a>
+                  
+                  
+                </div>
+                </li>
+
+            <!-- boton de buscar -->
+              <form class="form-inline my-2 my-lg-0" action="/productos" method="GET">
+                <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="search" name="search">
+                <button class="btn btn-outline-success my-2 my-sm-0" style="color:white" type="submit">Buscar</button>
+              </form>
+            {% else %} 
+
+               <li class="nav-item">
+                  <a class="nav-link text-title text-expanded" href="/registro/login/">Iniciar Sesion</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link text-title text-expanded" href="/registro/signup/">Registrarse</a>
+              </li>
+              
+            {% endif %}
+
           </ul>
-          <form class="form-inline my-2 my-lg-0" action="/productos" method="GET">
-            <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="search" name="search">
-            <button class="btn btn-outline-success my-2 my-sm-0" style="color:white" type="submit">Buscar</button>
-          </form>
 
         </div>
-      </div>
     </nav>
     </nav>
 

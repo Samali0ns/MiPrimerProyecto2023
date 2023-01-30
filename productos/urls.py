@@ -4,7 +4,8 @@ from productos import views
 
 urlpatterns = [
     path('',views.productos,name='productos'),
-    path('crear-productos/',views.crear_productos,name='crear-productos'),
-    path('crear-categorias/',views.crear_categorias,name='crear-categorias'),
-    path('categorias/',views.categorias,name='categorias'),
+    path('agregar-producto/',views.agregar_producto,name='agregar-producto'),
+    path('listar-producto/',views.listar_productos,name='listar-producto'),
+    path('modificar-producto/<int:id>/',views.modificar_producto,name='modificar-producto'),
+    path('eliminar-producto/<id>/',views.eliminar_producto,name='eliminar-producto'),
 ]

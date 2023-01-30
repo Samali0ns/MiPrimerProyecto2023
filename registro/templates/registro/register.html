@@ -1,0 +1,36 @@
+{% extends 'ProyectoTiendaApp/base.html' %}
+
+{% block title %}
+    Registro
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<br>
+<h1 div style="width:50%; margin:auto;">Formulario de Registro</h1><br>
+
+
+
+    {% if form %}
+
+        <form action="" method="POST">
+
+            {% csrf_token %}
+            <div style="width:50%; margin:auto;">
+            <table>
+                {{form|crispy}}
+            </table>
+
+
+            <input class="btn btn-outline-primary" type="submit" value="Registrarse">
+            </div>
+        </form>
+    {% endif %}
+
+    {% if errors %}
+        {{errors}}
+    {% endif %}
+
+
+{% endblock %}

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,12 +32,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 BASE_APPS = [
+    "admin_interface",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "colorfield",
 ]
 
 THIRD_APPS=[
@@ -48,8 +51,16 @@ MY_APPS=[
     'ProyectoTiendaApp',
     'servicios',
     'productos',
-    
+    'sobremi',
+    'registro',
+    'carro',
+    'crispy_forms',
+    'pedidos',
+    'contacto',
+ 
 ]
+
+X_FRAME_OPTIONS = "SAMEORIGIN"
 
 INSTALLED_APPS= BASE_APPS + THIRD_APPS + MY_APPS
 
@@ -77,6 +88,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'carro.context_processor.importe_total_carro',
             ],
         },
     },
@@ -140,3 +152,21 @@ MEDIA_ROOT= BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#VARIABLES DE REDIRECCION DE LOGIN Y LOGOUT
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+
+
+#CONFIGURACION DEL EMAIL
+EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST="smtp.googlemail.com"
+EMAIL_USE_TLS=True
+EMAIL_PORT=587
+EMAIL_HOST_USER= 'CORREO DE EMAIL'
+EMAIL_HOST_PASSWORD= 'CONTRASEÑA DE EMAIL'
+
+#CARGA DE CRISPY EN BOOTSTRAPP
+
+CRISPY_TEMPLATE_PACK='bootstrap4'
